@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DatabaseSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Servers>
+    <DatabaseServer Id="01" DisplayName="LocalServer" DatabaseType="SQLServer" ConnectionString="Data Source=.; Initial Catalog={@DbName}; Persist Security Info=True;User ID={@UserID}; Password={@Password}; TrustServerCertificate=True" UserId="sa" Password="enc:EAAAABwhQ5kFe6hKpBKg06Jq5goQAAAApYTF/JeAYZ2loLC53m4oKljQdA6aiK5EoNjfMaAJAf5P/eDqW4o19yN7fWmrQRyt" />
+  </Servers>
+  <Items>
+    <DatabaseItem Id="common" DisplayName="共用資料庫" DatabaseType="SQLServer" ServerId="01" DbName="common" />
+  </Items>
+</DatabaseSettings>
