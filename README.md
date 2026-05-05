@@ -9,7 +9,7 @@ Demonstrates how to use the Connector for both local and remote connections.
 | Project | Description |
 |---------|-------------|
 | **JsonRpcServer** | ASP.NET Core JSON-RPC 2.0 API server |
-| **JsonRpcClient** | WinForms client application |
+| **JsonRpcClient** | Cross-platform console client application |
 | **Custom.Business** | Custom business logic assembly |
 | **Custom.Contracts** | Shared data contracts |
 | **Define** | Configuration and schema files |
@@ -38,7 +38,7 @@ This sample references the following Bee.NET NuGet packages (v3.6.2):
 - Bee.Business
 - Bee.Cache
 - Bee.Repository
-- Bee.UI.WinForms
+- Bee.UI.Core
 
 ## License
 

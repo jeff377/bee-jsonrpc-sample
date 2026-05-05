@@ -416,3 +416,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Local-only configuration (contains environment-specific connection strings)
+src/Define/DatabaseSettings.xml
