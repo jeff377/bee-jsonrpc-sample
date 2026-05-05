@@ -419,3 +419,18 @@ FodyWeavers.xsd
 
 # Local-only configuration (contains environment-specific connection strings)
 src/Define/DatabaseSettings.xml
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Linux/editor temp files
+*~
+.directory
+.Trash-*
+
+# Windows shell metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
