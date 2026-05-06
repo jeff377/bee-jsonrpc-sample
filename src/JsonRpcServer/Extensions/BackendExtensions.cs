@@ -1,9 +1,12 @@
 using Bee.Api.Core;
+using Bee.Api.Core.Registry;
 using Bee.Base;
 using Bee.Db.Manager;
 using Bee.Definition;
 using Bee.Definition.Database;
 using Bee.ObjectCaching;
+using Custom.Api;
+using Custom.Api.Contracts;
 
 namespace ApiService.Extensions
 {
@@ -40,6 +43,9 @@ namespace ApiService.Extensions
             ApiServiceOptions.Initialize(settings.CommonConfiguration.ApiPayloadOptions);
             // 註冊資料庫提供者
             DbProviderRegistry.Register(DatabaseType.SQLServer, Microsoft.Data.SqlClient.SqlClientFactory.Instance);
+            // 註冊 BO 型別到 API 型別的合約映射，
+            // 讓 BO 可回傳純 POCO（HelloResult），框架在序列化前自動轉為帶 MessagePack 的 HelloResponse。
+            ApiContractRegistry.Register<IHelloResponse, HelloResponse>();
             return app;
         }
     }
