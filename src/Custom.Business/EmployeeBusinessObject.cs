@@ -1,7 +1,8 @@
-﻿using System;
+using System;
+using Bee.Business.Form;
+using Bee.Definition.Attributes;
+using Bee.Definition.Security;
 using Custom.Contracts;
-using Bee.Business;
-using Bee.Define;
 
 namespace Custom.Business
 {
@@ -25,12 +26,12 @@ namespace Custom.Business
         /// Public hello test method (no login, no encoding/encryption).
         /// </summary>
         [ApiAccessControl(ApiProtectionLevel.Public, ApiAccessRequirement.Anonymous)]
-        public HelloResult Hello(HelloArgs args)
+        public IHelloResponse Hello(IHelloRequest request)
         {
             System.Threading.Thread.Sleep(500); // Simulate a delay
-            return new HelloResult()
+            return new HelloResponse
             {
-                Message = $"Hello, {args.UserName}"
+                Message = $"Hello, {request.UserName}"
             };
         }
 
@@ -39,11 +40,11 @@ namespace Custom.Business
         /// Requires login authentication.
         /// </summary>
         [ApiAccessControl(ApiProtectionLevel.Encoded, ApiAccessRequirement.Authenticated)]
-        public HelloResult HelloEncoded(HelloArgs args)
+        public IHelloResponse HelloEncoded(IHelloRequest request)
         {
-            return new HelloResult()
+            return new HelloResponse
             {
-                Message = $"[Encoded & Auth] Hello, {args.UserName}"
+                Message = $"[Encoded & Auth] Hello, {request.UserName}"
             };
         }
 
@@ -52,11 +53,11 @@ namespace Custom.Business
         /// Requires login authentication.
         /// </summary>
         [ApiAccessControl(ApiProtectionLevel.Encrypted, ApiAccessRequirement.Authenticated)]
-        public HelloResult HelloEncrypted(HelloArgs args)
+        public IHelloResponse HelloEncrypted(IHelloRequest request)
         {
-            return new HelloResult()
+            return new HelloResponse
             {
-                Message = $"[Encrypted & Auth] Hello, {args.UserName}"
+                Message = $"[Encrypted & Auth] Hello, {request.UserName}"
             };
         }
 
@@ -64,11 +65,11 @@ namespace Custom.Business
         /// Local only — can only be invoked from local server (no remote API access).
         /// </summary>
         [ApiAccessControl(ApiProtectionLevel.LocalOnly, ApiAccessRequirement.Anonymous)]
-        public HelloResult HelloLocal(HelloArgs args)
+        public IHelloResponse HelloLocal(IHelloRequest request)
         {
-            return new HelloResult()
+            return new HelloResponse
             {
-                Message = $"[LocalOnly] Hello, {args.UserName}"
+                Message = $"[LocalOnly] Hello, {request.UserName}"
             };
         }
     }

@@ -1,4 +1,4 @@
-using Bee.Api.Core;
+using Bee.Api.Core.Messages;
 using Bee.UI.Core;
 using Custom.Contracts;
 
@@ -84,10 +84,10 @@ namespace JsonRpcClient
             if (!EnsureInitialized()) return;
 
             var connector = ClientInfo.CreateFormApiConnector("Employee");
-            var args = new HelloArgs { UserName = "Jeff" };
+            var request = new HelloRequest { UserName = "Jeff" };
 
-            var result = await connector.ExecuteAsync<HelloResult>(method, args, format);
-            Console.WriteLine($"Message: {result.Message}");
+            var response = await connector.ExecuteAsync<HelloResponse>(method, request, format);
+            Console.WriteLine($"Message: {response.Message}");
         }
 
         private static bool EnsureInitialized()

@@ -1,18 +1,19 @@
-﻿using System;
-using Bee.Business;
-using Bee.Define;
+using System;
+using Bee.Business.Form;
+using Bee.Business.System;
+using Bee.Definition;
 
 namespace Custom.Business
 {
     /// <summary>
-    /// Provider of business logic objects.
+    /// Business object factory.
     /// </summary>
-    public class BusinessObjectProvider : IBusinessObjectProvider
+    public class BusinessObjectFactory : IBusinessObjectFactory
     {
         /// <summary>
-        /// Constructor。
+        /// Constructor.
         /// </summary>
-        public BusinessObjectProvider()
+        public BusinessObjectFactory()
         { }
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace Custom.Business
         {
             switch (progId)
             {
-                case "Employee": 
+                case "Employee":
                     return new EmployeeBusinessObject(accessToken, progId, isLocalCall);
                 default:
                     return new FormBusinessObject(accessToken, progId, isLocalCall);

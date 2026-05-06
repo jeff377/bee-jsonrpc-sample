@@ -1,8 +1,9 @@
-﻿using Bee.Api.Core;
+using Bee.Api.Core;
 using Bee.Base;
-using Bee.Cache;
-using Bee.Db;
-using Bee.Define;
+using Bee.Db.Manager;
+using Bee.Definition;
+using Bee.Definition.Database;
+using Bee.ObjectCaching;
 
 namespace ApiService.Extensions
 {
@@ -38,7 +39,7 @@ namespace ApiService.Extensions
             // 初始化 API 服務選項，設定序列化器、壓縮器與加密器的實作
             ApiServiceOptions.Initialize(settings.CommonConfiguration.ApiPayloadOptions);
             // 註冊資料庫提供者
-            DbProviderManager.RegisterProvider(DatabaseType.SQLServer, Microsoft.Data.SqlClient.SqlClientFactory.Instance);
+            DbProviderRegistry.Register(DatabaseType.SQLServer, Microsoft.Data.SqlClient.SqlClientFactory.Instance);
             return app;
         }
     }
