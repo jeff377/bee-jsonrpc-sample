@@ -11,8 +11,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Bee.Api.AspNetCore" Version="3.6.2" />
-		<PackageReference Include="Bee.Cache" Version="3.6.2" />
+		<PackageReference Include="Bee.Api.AspNetCore" Version="4.1.0" />
+		<PackageReference Include="Bee.ObjectCaching" Version="4.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>

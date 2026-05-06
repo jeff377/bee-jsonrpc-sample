@@ -31,7 +31,7 @@
       <DatabaseEncryptionKey>EAAAAEgMKPIIzBHMRXaImZRG12FQAAAAk+sXJ/4bTNINPqlTzFsnhvQb9zNZnvH9PVdHBeQVPvADLTI0rxPpZWOjUAAeTxZ1Q1/fWDvhEDpwm7SxDUkd0qdbGfeNxrX/nBWBYroIT7iS6Xal7mYp4vBbEO4BqadOtPzPxSxN1WJMZopnXe1Ktg==</DatabaseEncryptionKey>
     </SecurityKeySettings>
     <Components>
-      <BusinessObjectProvider>Custom.Business.BusinessObjectProvider, Custom.Business</BusinessObjectProvider>
+      <BusinessObjectFactory>Custom.Business.BusinessObjectFactory, Custom.Business</BusinessObjectFactory>
     </Components>
   </BackendConfiguration>
   <FrontendConfiguration />

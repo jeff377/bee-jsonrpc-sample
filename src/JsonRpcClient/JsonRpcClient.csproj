@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bee.UI.Core" Version="3.6.2" />
+    <PackageReference Include="Bee.UI.Core" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>

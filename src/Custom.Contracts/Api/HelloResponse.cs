@@ -1,12 +1,13 @@
-﻿using Bee.Contracts;
+using Bee.Api.Core.Messages;
 using MessagePack;
-using System;
 
 namespace Custom.Contracts
 {
+    /// <summary>
+    /// Hello API 輸出型別，承載 API 傳輸所需的序列化標記。
+    /// </summary>
     [MessagePackObject]
-    [Serializable]
-    public class HelloResult : BusinessResult
+    public class HelloResponse : ApiResponse, IHelloResponse
     {
         /// <summary>
         /// 回傳訊息。
