@@ -1,6 +1,6 @@
 using Bee.Api.Core.Messages;
 using Bee.UI.Core;
-using Custom.Contracts;
+using Custom.Api;
 
 namespace JsonRpcClient
 {

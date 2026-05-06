@@ -1,7 +1,8 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/Custom.Api/Custom.Api.csproj" />
+    <Project Path="src/Custom.Api.Contracts/Custom.Api.Contracts.csproj" />
     <Project Path="src/Custom.Business/Custom.Business.csproj" />
-    <Project Path="src/Custom.Contracts/Custom.Contracts.csproj" />
     <Project Path="src/JsonRpcClient/JsonRpcClient.csproj" />
     <Project Path="src/JsonRpcServer/JsonRpcServer.csproj" />
   </Folder>

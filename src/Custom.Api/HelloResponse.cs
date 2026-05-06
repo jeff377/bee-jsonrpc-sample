@@ -1,7 +1,8 @@
 using Bee.Api.Core.Messages;
+using Custom.Api.Contracts;
 using MessagePack;
 
-namespace Custom.Contracts
+namespace Custom.Api
 {
     /// <summary>
     /// Hello API 輸出型別，承載 API 傳輸所需的序列化標記。

@@ -1,7 +1,7 @@
-namespace Custom.Contracts
+namespace Custom.Api.Contracts
 {
     /// <summary>
-    /// Hello API 輸出合約介面，client 與 server 共用屬性合約。
+    /// Hello API 輸出合約介面，client / API / BO 三層共用屬性合約。
     /// </summary>
     public interface IHelloResponse
     {

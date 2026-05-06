@@ -16,6 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Custom.Api\Custom.Api.csproj" />
 		<ProjectReference Include="..\Custom.Business\Custom.Business.csproj" />
 	</ItemGroup>
 

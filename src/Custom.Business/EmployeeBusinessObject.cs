@@ -2,7 +2,7 @@ using System;
 using Bee.Business.Form;
 using Bee.Definition.Attributes;
 using Bee.Definition.Security;
-using Custom.Contracts;
+using Custom.Api.Contracts;
 
 namespace Custom.Business
 {
@@ -29,7 +29,7 @@ namespace Custom.Business
         public IHelloResponse Hello(IHelloRequest request)
         {
             System.Threading.Thread.Sleep(500); // Simulate a delay
-            return new HelloResponse
+            return new HelloResult
             {
                 Message = $"Hello, {request.UserName}"
             };
@@ -42,7 +42,7 @@ namespace Custom.Business
         [ApiAccessControl(ApiProtectionLevel.Encoded, ApiAccessRequirement.Authenticated)]
         public IHelloResponse HelloEncoded(IHelloRequest request)
         {
-            return new HelloResponse
+            return new HelloResult
             {
                 Message = $"[Encoded & Auth] Hello, {request.UserName}"
             };
@@ -55,7 +55,7 @@ namespace Custom.Business
         [ApiAccessControl(ApiProtectionLevel.Encrypted, ApiAccessRequirement.Authenticated)]
         public IHelloResponse HelloEncrypted(IHelloRequest request)
         {
-            return new HelloResponse
+            return new HelloResult
             {
                 Message = $"[Encrypted & Auth] Hello, {request.UserName}"
             };
@@ -67,7 +67,7 @@ namespace Custom.Business
         [ApiAccessControl(ApiProtectionLevel.LocalOnly, ApiAccessRequirement.Anonymous)]
         public IHelloResponse HelloLocal(IHelloRequest request)
         {
-            return new HelloResponse
+            return new HelloResult
             {
                 Message = $"[LocalOnly] Hello, {request.UserName}"
             };
