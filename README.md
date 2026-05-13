@@ -51,14 +51,33 @@ dotnet build --configuration Release
 
 ## NuGet Dependencies
 
-This sample references the following Bee.NET NuGet packages (v4.1.0):
+This sample references the following Bee.NET NuGet packages (v4.3.0):
 
-- Bee.Api.AspNetCore (server)
+- Bee.Api.AspNetCore (server) — transitively brings in `Bee.Hosting`, `Bee.ObjectCaching`, `Bee.Business`, `Bee.Repository`
 - Bee.Api.Core (Custom.Api)
 - Bee.Business (Custom.Business)
-- Bee.ObjectCaching (server)
 - Bee.Repository (Custom.Business)
 - Bee.UI.Core (client)
+
+### 4.3.0 startup flow (server)
+
+`JsonRpcServer/Program.cs` uses the 4.3.0 composition-root pattern:
+
+```csharp
+using Bee.Hosting;          // AddBeeFramework
+using Bee.Api.AspNetCore;   // UseBeeFramework
+
+var paths = new PathOptions { DefinePath = absoluteDefinePath };
+var settings = SystemSettingsLoader.Load(paths);
+SysInfo.Initialize(settings.CommonConfiguration);
+
+DbProviderRegistry.Register(DatabaseType.SQLServer, SqlClientFactory.Instance);
+builder.Services.AddBeeFramework(settings.BackendConfiguration, paths, autoCreateMasterKey: true);
+
+app.UseBeeFramework();
+```
+
+`AddBeeFramework` registers all backend services into DI (replacing the manual `BackendInfo.Initialize` / `ApiServiceOptions.Initialize` / `ApiContractRegistry.Register` calls used before 4.3.0). The host still needs `DbProviderRegistry.Register` for any ADO.NET provider it intends to use.
 
 ## License
 

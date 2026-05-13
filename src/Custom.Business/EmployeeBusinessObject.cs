@@ -1,5 +1,6 @@
 using System;
 using Bee.Business.Form;
+using Bee.Definition;
 using Bee.Definition.Attributes;
 using Bee.Definition.Security;
 using Custom.Api.Contracts;
@@ -14,11 +15,12 @@ namespace Custom.Business
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="sessionID">Session ID.</param>
+        /// <param name="ctx">Per-call context aggregating cross-cutting services.</param>
+        /// <param name="accessToken">Access token.</param>
         /// <param name="progId">Program ID.</param>
         /// <param name="isLocalCall">Indicates whether the call is from a local source.</param>
-        public EmployeeBusinessObject(Guid sessionID, string progId, bool isLocalCall)
-            : base(sessionID, progId, isLocalCall)
+        public EmployeeBusinessObject(IBeeContext ctx, Guid accessToken, string progId, bool isLocalCall = true)
+            : base(ctx, accessToken, progId, isLocalCall)
         {
         }
 

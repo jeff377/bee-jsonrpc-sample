@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bee.Business" Version="4.1.0" />
-    <PackageReference Include="Bee.Repository" Version="4.1.0" />
+    <PackageReference Include="Bee.Business" Version="4.3.0" />
+    <PackageReference Include="Bee.Repository" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
